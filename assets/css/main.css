@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+}
+body {
+    background-color: black;
+}
+ /*rotate 45 degrees*/
+ .rotate90 {
+   
+    /*General*/
+    transform: rotate(90deg);
+    /*Firefox*/
+    -moz-transform: rotate(90deg);
+    /*Microsoft Internet Explorer*/
+    -ms-transform: rotate(90deg);
+    /*Chrome, Safari*/
+    -webkit-transform: rotate(90deg)translatex(0);
+    /*Opera*/
+    -o-transform: rotate(90deg);
+    
+    
+}
+
+.rotate180 {
+    /*General*/
+    transform: rotate(180deg) ;
+    /*Firefox*/
+    -moz-transform: rotate(180deg) ;
+    /*Microsoft Internet Explorer*/
+    -ms-transform: rotate(180deg) ;
+    /*Chrome, Safari*/
+    -webkit-transform: rotate(180deg)translatex(-38.5%) ;
+    /*Opera*/
+    -o-transform: rotate(180deg) ;
+    
+}
+
+.rotate270 {
+    /*General*/
+    transform: rotate(-90deg) ;
+    /*Firefox*/
+    -moz-transform: rotate(270deg) ;
+    /*Microsoft Internet Explorer*/
+    -ms-transform: rotate(270deg) ;
+    /*Chrome, Safari*/
+    -webkit-transform: translatey(620%) rotate(270deg);
+    /*Opera*/
+    -o-transform: rotate(270deg) ;
+    /*alter opacity*/
+    
+}
+ 
+.onehouse {
+    position: relative;
+    left : 40%;
+    margin:0;
+}
+.twohouse {
+    position: relative;
+    left : 30%;
+    margin:0;
+}
+.tile-text {
+    font-size: 15!important;
+    text-align: center;
+    font-weight: bold;
+}
+.scale{
+    transform:scale(0.4);
+}

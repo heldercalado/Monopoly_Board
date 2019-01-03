@@ -1,0 +1,22 @@
+.avatar {
+    height: 40px;
+    width: 40px;
+    z-index: 100;
+    position: absolute;
+    /* bottom: 75px;
+    left: 75px; */
+    background-color: blue;
+    transition: 2s;
+    border-radius: 25px;
+}
+.avatar img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 36px;
+    height: 36px;
+    margin-top: -18px; /* Half the height */
+    margin-left: -18px; /* Half the width */
+    border-radius: 18px;
+    
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+        <script src="./board.js"></script>
+        <link rel="stylesheet" href="./assets/css/board.css">
+        <link rel="stylesheet" href="./assets/css/tiles.css">
+        <link rel="stylesheet" href="./assets/css/avatar.css">
+       
+    <title>Document</title>
+</head>
+<style>
+    
+</style>
+
+<body>
+    <div class="gameBoard" id="target">
+            
+        <div class="avatar">
+            <img src="./assets/img/avatar1.png" alt="">
+        </div>
+                   
+                    
+            <div class="centerboard">
+                    board
+                </div>
+               
+    </div>
+    
+
+</body>
+<script src="./assets/script/cards.js"></script>
+<script src="./assets/script/boardTiles.js"></script>
+<script src="./assets/script/board.js"></script>
+<script>
+    $(document).ready(function () {
+        var boardPosition = [];
+        var board = new Board();
+        board.init();
+        var myObj = {
+                position:0,
+                width:$("#pos0").width(),
+                height:$("#pos0").height(),
+                left:$("#pos0").width() / 2,
+                top:$("#pos0").height() / 2,
+                   
+                }
+                boardPosition.push(myObj);
+        for (var i = 1 ; i < 40 ; i++){
+
+            var position = i - 1;
+            
+            var myObj = {
+                position:i,
+                width:$("#pos"+i).width(),
+                height:$("#pos"+i).height(),
+                left:($("#pos"+i).width() / 2)+($("#pos"+position).width() / 2),
+                top:($("#pos"+i).height() / 2)+($("#pos"+position).height() / 2),
+                   
+                }
+            boardPosition.push(myObj);
+            console.log("#pos"+i +" w:"+$("#pos"+i).width()+" h:"+$("#pos"+i).height());
+        }
+        console.log(boardPosition);
+        $('.avatar').css('left', boardPosition[0].left);
+        $('.avatar').css('bottom', boardPosition[0].top);
+        
+        
+    })
+</script>
+
+</html>

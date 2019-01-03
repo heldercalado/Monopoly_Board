@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="cards.css">
+    <link rel="stylesheet" href="deed.css">
+    <link rel="stylesheet" href="oddcards.css">
+    <link rel="stylesheet" href="board.css">
+    <link rel="stylesheet" href="corners.css">
+</head>
+<style>
+    .hotel img {
+        float: left;
+        width: 25px;
+        height: 25px;
+
+    }
+</style>
+
+<body>
+
+
+
+
+    
+
+
+
+    <div class="gameBoard">
+        <div class="centerboard">
+            board
+        </div>
+        <div class="board_1">
+            <div class="go_container">
+                <div class="go-title">
+                    <div class="go_text">
+                        <br>
+
+                        <p class="tile-text">Collect</p>
+                        <p class="tile-text">$200 Salary</p>
+                        <p class="tile-text">as you PASS</p>
+                        <h1>GO</h1>
+                    </div>
+                </div>
+                <div class="go-body">
+                    <br>
+                    <img src="../img/Monopoly_Go_Arrow.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="board_2">
+            <div class="jail_container">
+                <div class="jail-title">
+                    <div class="jail_text">
+                        <p class="tile-text">JAIL</p>
+                    </div>
+                    <br>
+                    <img src="../img/jail.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="board_3">
+            <div class="freepark_container">
+                <div class="freepark-title">
+                    <div class="freepark_text">
+                        <p class="tile-text">free park</p>
+                    </div>
+                    <br>
+                    <img src="../img/freepark.jpg" alt="">
+
+
+                </div>
+            </div>
+        </div>
+        <div class="board_4">
+            <div class="gotojail_container">
+                <div class="gotojail-title">
+                    <div class="gotojail_text">
+                        <p class="tile-text">Go To</p>
+                        <p class="tile-text">Jail</p>
+                    </div>
+                    <br>
+                    <img src="http://www.tenancy.co.nz/wp-content/uploads/2017/05/Monopoly-Officer.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="board_left">
+            <div class="left_container rotate90" id="left">
+            </div>
+
+        </div>
+        <div class="board_top">
+            <div class="top_container rotate180" id="top">
+
+            </div>
+        </div>
+        <div class="board_right">
+            <div class="right_container rotate270" id="right">
+
+            </div>
+        </div>
+        <div class="board_bottom">
+                <div class="bottom_container" id="bottom">
+
+                    </div>
+            </div>
+    </div>
+
+</body>
+<script src="../data/cards.js"></script>
+<script>
+    $(document).ready(function () {
+
+        console.log(cards_properties);
+        for (var i = 0; i < cards_properties.length; i++) {
+            if (cards_properties[i].position >= 1 && cards_properties[i].position <= 9) {
+                addTitle(cards_properties[i], "left", "");
+            } else if (cards_properties[i].position >= 11 && cards_properties[i].position <= 19) {
+                addTitle(cards_properties[i], "top", "");
+            } else if (cards_properties[i].position >= 21 && cards_properties[i].position <= 29) {
+                addTitle(cards_properties[i], "right", "");
+            } else if (cards_properties[i].position >= 31 && cards_properties[i].position <= 39) {
+                addTitle(cards_properties[i], "bottom", "");
+            }
+
+            //addDeed(cards_properties[i], "target");
+
+        }
+
+        addChance();
+        for (var i = 0; i < railRoads.length; i++) {
+            if (railRoads[i].position >= 1 && railRoads[i].position <= 9) {
+                addRailRoad(railRoads[i], "left", "");
+            } else if (railRoads[i].position >= 11 && railRoads[i].position <= 19) {
+                addRailRoad(railRoads[i], "top", "");
+            } else if (railRoads[i].position >= 21 && railRoads[i].position <= 29) {
+                addRailRoad(railRoads[i], "right", "");
+            } else if (railRoads[i].position >= 31 && railRoads[i].position <= 39) {
+                addRailRoad(railRoads[i], "bottom", "");
+            }
+            //addRailRoad(railRoads[i], "target");
+            //addRailRoadDeed(railRoads[i], "target");
+        }
+
+
+
+        addUtilities(utilities[0], "right");
+        addUtilities(utilities[1], "top");
+
+        //addUtilitiesDeed(utilities[i], "target");
+
+
+        addCommunityChest("target", communityChestLocation);
+        addLuxury();
+        addTax();
+        //         for (var i =0 ;i < 122 ; i++){
+        //     $(".gameBoard").append('<div id="game'+i+'" style="background-color:blue;"></div>');
+        //     $("#game"+i).append('<h2>go'+i+'</h2>');
+        // }
+
+    })
+
+
+    function addTitle(argobj, argTarget, argClass = "") {
+        $("#" + argTarget).append('<div class="card ' + argClass + '" id="pos' + argobj.position + '"></div>');
+        $("#pos" + argobj.position).append('<div class="card-title" style="background-color:' + argobj.color_code +
+            ';"></div>');
+        $("#pos" + argobj.position).append('<div class="card-body" id="cbody' + argobj.position + '"></div>');
+        $("#cbody" + argobj.position).append('<p class="tile-text">' + argobj.name + '</p>');
+        $("#pos" + argobj.position).append('<div class="card-upgrades" id="cupgrade' + argobj.position + '"></div>');
+        $("#cupgrade" + argobj.position).append('<img src="../img/house.jpg" alt="" srcset="">');
+        $("#pos" + argobj.position).append('<div class="card-footer" id="footer' + argobj.position + '"></div>');
+        $("#footer" + argobj.position).append('<p>$' + argobj.price + '</p>');
+    }
+
+    function addDeed(argobj, argTarget) {
+        $("#" + argTarget).append('<div class="cardDeed" id="deed' + argobj.position + '"></div>');
+        $("#deed" + argobj.position).append('<div class="cardDeed-title" id="cdeedtitle' + argobj.position +
+            '" style="background-color:' + argobj.color_code + ';"></div>');
+        $("#cdeedtitle" + argobj.position).append('<p>Title Deed</p>');
+        $("#cdeedtitle" + argobj.position).append('<h3><strong>' + argobj.name + '</strong></h3>');
+        $("#deed" + argobj.position).append('<div class="cardDeed-body" id="cdeedbody' + argobj.position + '"></div>');
+        $("#cdeedbody" + argobj.position).append('<table id="tbldeed' + argobj.position +
+            '" style="width: 100%; padding: 5px;"></table>');
+        $("#tbldeed" + argobj.position).append(
+            '<tr><td><h5>Rent</h5></td><td></td><td style="text-align: right;"><h5>$' + argobj.rent +
+            '</h5></td></tr>');
+        $("#tbldeed" + argobj.position).append(
+            '<tr><td><h5>Rent with color set</h5></td><td></td><td style="text-align: right;"><h5>$' + argobj.rent_color_set +
+            '</h5></td>');
+        $("#tbldeed" + argobj.position).append(
+            '<tr><td><h5>Rent with 1</h5></td><td><img src="../img/house.jpg" alt="" srcset=""></td><td style="text-align: right;"><h5>$' +
+            argobj.rent_1_house + '</h5></td>')
+        $("#tbldeed" + argobj.position).append(
+            '<tr><td><h5>Rent with 2</h5></td><td><img src="../img/house.jpg" alt="" srcset=""></td><td style="text-align: right;"><h5>$' +
+            argobj.rent_2_houses + '</h5></td>')
+        $("#tbldeed" + argobj.position).append(
+            '<tr><td><h5>Rent with 3</h5></td><td><img src="../img/house.jpg" alt="" srcset=""></td><td style="text-align: right;"><h5>$' +
+            argobj.rent_3_houses + '</h5></td>')
+        $("#tbldeed" + argobj.position).append(
+            '<tr><td><h5>Rent with 4</h5></td><td><img src="../img/house.jpg" alt="" srcset=""></td><td style="text-align: right;"><h5>$' +
+            argobj.rent_4_houses + '</h5></td>')
+        $("#tbldeed" + argobj.position).append(
+            '<tr><td><h5>Rent with</h5></td><td class="hotel"><img src="../img/hotel.jpg" alt="" srcset=""></td><td style="text-align: right;"><h5>$' +
+            argobj.rent_hotel + '</h5></td>')
+        $("#deed" + argobj.position).append('<div class="cardDeed-footer" id="deedfooter' + argobj.position +
+            '"></div>');
+        $("#deedfooter" + argobj.position).append('<hr>');
+        $("#deedfooter" + argobj.position).append('<table style="width: 100%; padding: 5px;" id="tblfooterdeed' +
+            argobj.position + '">');
+        $("#tblfooterdeed" + argobj.position).append(
+            '<tr><td><h5>House Cost</h5></td><td></td><td style="text-align: right;"><h5>$' + argobj.houses_cost +
+            ' Each</h5></td>')
+        $("#tblfooterdeed" + argobj.position).append(
+            '<tr><td><h5>Hotel Cost</h5></td><td></td><td style="text-align: right;"><h5>$' + argobj.hotel_cost +
+            ' Each</h5></td>')
+        $("#tblfooterdeed" + argobj.position).append(
+            '<tr><td><h5>Mortgage Value</h5></td><td></td><td style="text-align: right;"><h5>$' + argobj.mortgage_value +
+            '</h5></td>')
+        $("#tblfooterdeed" + argobj.position).append(
+            '<tr><td><h5>To unmortgage pay</h5></td><td></td><td style="text-align: right;"><h5>$' + argobj.unmortgage +
+            '</h5></td>')
+    }
+
+
+    function addChance() {
+        var target = "";
+        for (var i = 0; i < chancesLocation.length; i++) {
+            if (chancesLocation[i] >= 1 && chancesLocation[i] <= 9) {
+                target = "#left"
+            } else if (chancesLocation[i] >= 11 && chancesLocation[i] <= 19) {
+                target = "#top"
+            } else if (chancesLocation[i] >= 21 && chancesLocation[i] <= 29) {
+                target = "#right"
+            } else if (chancesLocation[i] >= 31 && chancesLocation[i] <= 39) {
+                target = "#bottom"
+            }
+            $(target).append('<div class="chance_container" id="chance' + i + '"></div>');
+            $("#chance" + i).append('<div class="chance-title" id="chancetitle' + i + '"></div>');
+            $("#chancetitle" + i).append('<h4>Chance</h4>');
+            $("#chance" + i).append('<div class="chance-body" id="chancebody' + i + '"></div>');
+            $("#chancebody" + i).append('<img src="../img/chance.jpg" alt="" srcset="">')
+        }
+
+    }
+
+    function addRailRoad(argobj, argTarget) {
+        $("#" + argTarget).append('<div class="railroad_container" id="rr' + argobj.position + '"></div>');
+        $("#rr" + argobj.position).append('<div class="railroad-title" id="rrtitle' + argobj.position + '"></div>');
+        $("#rrtitle" + argobj.position).append('<p class="tile-text">' + argobj.name + '</p>');
+        $("#rr" + argobj.position).append('<div class="railroad-body" id="rrbody' + argobj.position + '"></div>');
+        $("#rrbody" + argobj.position).append('<img src="../img/train.jpg" alt="" srcset="">');
+        $("#rr" + argobj.position).append('<div class="railroad-footer" id="rrfooter' + argobj.position + '"></div>');
+        $("#rrfooter" + argobj.position).append('<p>$' + argobj.price + '</p>');
+    }
+    function addLuxury() {
+
+        $("#bottom").append('<div class="luxury_container" id="lx1"></div>');
+        $("#lx1").append('<div class="luxury-title" id="lxtitle"></div>');
+        $("#lxtitle").append('<p class="tile-text">Luxury Tax</p>');
+        $("#lx1").append('<div class="luxury-body" id="lxbody"></div>');
+        $("#lxbody").append('<img src="../img/diamond.jpg" alt="" srcset="">');
+        $("#lx1").append('<div class="luxury-footer" id="lxfooter"></div>');
+        $("#lxfooter").append('<br><p>Pay $100</p>');
+    }
+    function addTax() {
+
+$("#left").append('<div class="tax_container" id="tax"></div>');
+$("#tax").append('<div class="tax-title" id="taxtitle"></div>');
+$("#taxtitle").append('<p class="tile-text">Income Tax</p>');
+$("#tax").append('<div class="tax-body" id="taxbody"></div>');
+$("#taxbody").append('<img src="../img/dollar-sign-black.jpg" alt="" srcset="">');
+$("#tax").append('<div class="tax-footer" id="taxfooter"></div>');
+$("#taxfooter").append('<br><p>Pay $200</p>');
+}
+
+    function addRailRoadDeed(argobj, argTarget) {
+        $("#" + argTarget).append('<div class="RailRoadDeed_container" id="rrdeed' + argobj.position + '"></div>');
+        $("#rrdeed" + argobj.position).append('<div class="RailRoadDeed-title" id="rrdeedtitle' + argobj.position +
+            '"></div>');
+        $("#rrdeedtitle" + argobj.position).append('<img src="../img/train.jpg" alt="" srcset="">');
+        $("#rrdeed" + argobj.position).append('<div class="RailRoadDeed-body" id="rrdeedbody' + argobj.position +
+            '"></div>');
+        $("#rrdeedbody" + argobj.position).append('<h3>' + argobj.name + '</h3>');
+        $("#rrdeed" + argobj.position).append('<div class="RailRoadDeed-footer" id="rrdeedfooter' + argobj.position +
+            '"></div>');
+        $("#rrdeedfooter" + argobj.position).append('<table style="width: 100%; padding: 5px;" id="rrtbldeed' + argobj.position +
+            '"></table>');
+        $("#rrtbldeed" + argobj.position).append('<tr><td><h5>Rent:</h5></td><td style="text-align: right;"><h5>$' +
+            argobj.rent + '</h5></td></tr>');
+        $("#rrtbldeed" + argobj.position).append(
+            '<tr><td><h5>If 2 Railroads are awned</h5></td><td style="text-align: right;"><h5>$' + argobj.own_2 +
+            '</h5></td></tr>');
+        $("#rrtbldeed" + argobj.position).append(
+            '<tr><td><h5>If 3 Railroads are awned</h5></td><td style="text-align: right;"><h5>$' + argobj.own_3 +
+            '</h5></td></tr>');
+        $("#rrtbldeed" + argobj.position).append(
+            '<tr><td><h5>If 4 Railroads are awned</h5></td><td style="text-align: right;"><h5>$' + argobj.own_4 +
+            '</h5></td></tr>');
+    }
+
+    function addUtilities(argobj, argTarget) {
+        $("#" + argTarget).append('<div class="utilities_container" id="util' + argobj.position + '"></div>');
+        $("#util" + argobj.position).append('<div class="utilities-title" id="utiltitle' + argobj.position + '"></div>');
+        $("#utiltitle" + argobj.position).append('<p class="tile-text">' + argobj.name + '</p>');
+        $("#util" + argobj.position).append('<div class="utilities-body" id="utilbody' + argobj.position + '"></div>');
+        $("#utilbody" + argobj.position).append('<img src="' + argobj.image + '" alt="" srcset="">');
+        $("#util" + argobj.position).append('<div class="utilities-footer" id="utilfooter' + argobj.position +
+            '"></div>');
+        $("#utilfooter" + argobj.position).append('<p>$' + argobj.price + '</p>');
+
+    }
+
+    function addUtilitiesDeed(argobj, argTarget) {
+        $("#" + argTarget).append('<div class="utilitiesDeed_container" id="utildeed' + argobj.position + '"></div>');
+        $("#utildeed" + argobj.position).append('<div class="utilitiesDeed-title" id="utildeedtitle' + argobj.position +
+            '"></div>');
+        $("#utildeedtitle" + argobj.position).append('<img src="../img/' + argobj.image + '" alt="" srcset="">');
+        $("#utildeed" + argobj.position).append('<div class="utilitiesDeed-body" id="utilbodydeed' + argobj.position +
+            '"></div>');
+        $("#utilbodydeed" + argobj.position).append('<h3>Electric Company</h3>');
+        $("#utildeed" + argobj.position).append(
+            '<div class="utilitiesDeed-footer" style="text-align:center" id="utildeedfooter' + argobj.position +
+            '"></div>');
+        $("#utildeedfooter" + argobj.position).append(
+            '<h5>If one Utility is owned, rent is 4 times amount shown on dice.</h5>');
+        $("#utildeedfooter" + argobj.position).append(
+            '<h5>If two Utility is owned, rent is 10 times amount shown on dice.</h5>');
+    }
+
+    function addCommunityChest(argTarget, arglocation) {
+        for (let i = 0; i < arglocation.length; i++) {
+            if (arglocation[i] >= 1 && arglocation[i] <= 9) {
+                console.log("added chest in the left");
+                argTarget = "left"
+                $("#" + argTarget).append('<div class="communitychest_container" id="chest' + arglocation[i] +
+                    '"></div>');
+                $("#chest" + arglocation[i]).append('<div class="communitychest-title"><p>Community Chest</p></div>');
+                $("#chest" + arglocation[i]).append(
+                    '<div class="communitychest-body"><img src="../img/treasure.jpg" alt="" srcset=""></div>');
+            } else if (arglocation[i] >= 11 && arglocation[i] <= 19) {
+                console.log("added chest in the top");
+                argTarget = "top"
+                $("#" + argTarget).append('<div class="communitychest_container" id="chest' + arglocation[i] +
+                    '"></div>');
+                $("#chest" + arglocation[i]).append('<div class="communitychest-title"><p>Community Chest</p></div>');
+                $("#chest" + arglocation[i]).append(
+                    '<div class="communitychest-body"><img src="../img/treasure.jpg" alt="" srcset=""></div>');
+
+            } else if (arglocation[i] >= 21 && arglocation[i] <= 29) {
+                console.log("added chest in the right");
+                argTarget = "right"
+                $("#" + argTarget).append('<div class="communitychest_container" id="chest' + arglocation[i] +
+                    '"></div>');
+                $("#chest" + arglocation[i]).append('<div class="communitychest-title"><p>Community Chest</p></div>');
+                $("#chest" + arglocation[i]).append(
+                    '<div class="communitychest-body"><img src="../img/treasure.jpg" alt="" srcset=""></div>');
+
+            } else if (arglocation[i] >= 31 && arglocation[i] <= 39) {
+                console.log("added chest in the bottom");
+                argTarget = "bottom"
+                $("#" + argTarget).append('<div class="communitychest_container" id="chest' + arglocation[i] +
+                    '"></div>');
+                $("#chest" + arglocation[i]).append('<div class="communitychest-title"><p>Community Chest</p></div>');
+                $("#chest" + arglocation[i]).append(
+                    '<div class="communitychest-body"><img src="../img/treasure.jpg" alt="" srcset=""></div>');
+
+            }
+        }
+    }
+</script>
+
+</html>

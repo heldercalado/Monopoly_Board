@@ -1,0 +1,359 @@
+.chance_container {
+    display: grid;
+    grid-template-areas: "chanceTitle""chanceBody";
+    grid-template-rows: 15% 85%;
+    /* float: left; */
+    /* margin: 20px; */
+    width: 120px;
+    height: 150px;
+    border: 1px solid black;
+    background-color: white;
+    /* box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); */
+
+}
+
+.chance-title {
+    grid-area: chanceTitle;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    
+}
+.chance-body {
+    grid-area: chanceBody;
+    width: 100%;
+    height: 100%;
+    text-align: center
+}
+.chance_container img{
+
+    max-height:100%; 
+    max-width:100%
+}
+.chance_container h3 {
+    text-align: center;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* width: 15px;
+    height: 15px; */
+}
+.railroad_container {
+    display: grid;
+    grid-template-areas: "rrTitle""rrBody" "rrFooter";
+    grid-template-rows: 20% 65% 15%;
+    /* float: left; */
+    /* margin: 20px; */
+    width: 120px;;
+    height: 150px;
+    border: 1px solid black;
+   background-color:white;
+    /* box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); */
+
+}
+.railroad-title {
+    grid-area: rrTitle;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 10px;
+    
+}
+.railroad-body {
+    grid-area: rrBody;
+    width: 100%;
+    height: 100%;
+    text-align: center
+}
+.railroad-footer {
+    grid-area: rrFooter;
+    width: 100%;
+    height: 100%;
+    text-align: center
+}
+.railroad_container img {
+    
+
+        max-height:100%; 
+        max-width:100%
+    
+}
+.railroad_container h4 {
+    text-align: center;
+    position: relative;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+.luxury_container {
+    display: grid;
+    grid-template-areas: "rrTitle""rrBody" "rrFooter";
+    grid-template-rows: 25% 50% 25%;
+    /* float: left; */
+    /* margin: 20px; */
+    width: 120px;;
+    height: 150px;
+    border: 1px solid black;
+   background-color:white;
+    /* box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); */
+
+}
+.luxury-title {
+    grid-area: rrTitle;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 10px;
+    
+}
+.luxury-body {
+    grid-area: rrBody;
+    width: 100%;
+    height: 100%;
+    text-align: center
+}
+.luxury-footer {
+    grid-area: rrFooter;
+    width: 100%;
+    height: 100%;
+    text-align: center
+}
+.luxury_container img {
+    
+
+        max-height:100%; 
+        max-width:100%
+    
+}
+.luxury_container h4 {
+    text-align: center;
+    position: relative;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+.tax_container {
+    display: grid;
+    grid-template-areas: "rrTitle""rrBody" "rrFooter";
+    grid-template-rows: 25% 50% 25%;
+    /* float: left; */
+    /* margin: 20px; */
+    width: 120px;;
+    height: 150px;
+    border: 1px solid black;
+   background-color:white;
+    /* box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); */
+
+}
+.tax-title {
+    grid-area: rrTitle;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 10px;
+    
+}
+.tax-body {
+    grid-area: rrBody;
+    width: 100%;
+    height: 100%;
+    text-align: center
+}
+.tax-footer {
+    grid-area: rrFooter;
+    width: 100%;
+    height: 100%;
+    text-align: center
+}
+.tax_container img {
+    
+
+        max-height:100%; 
+        max-width:100%
+    
+}
+.RailRoadDeed_container {
+    display: grid;
+    grid-template-areas: "rrDeedTitle""rrDeedBody""rrDeedFooter";
+    grid-template-rows: 30% 40% 30%;
+    float: left;
+    margin: 20px;
+    width: 200px;
+    height: 270px;
+    border: 1px solid black;
+    
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+}
+.RailRoadDeed-title {
+    grid-area: rrDeedTitle;
+    width: 100%;
+    height: 100%;
+    text-align: center
+}
+
+
+
+.RailRoadDeed-body {
+    grid-area: rrDeedBody;
+    position: relative;
+    
+    width: 100%;
+    height: 100%;
+}
+
+.RailRoadDeed-footer {
+    grid-area: rrDeedFooter;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.RailRoadDeed_container h3 {
+    text-align: center;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+.RailRoadDeed_container img {
+    
+
+    max-height:100%; 
+    max-width:100%
+
+}
+.utilities_container {
+    display: grid;
+    grid-template-areas: "utilTitle""utilBody" "utilFooter";
+    grid-template-rows: 25% 60% 15%;
+    /* float: left; */
+    /* margin: 20px; */
+    width: 120px;
+    height: 150px;
+    border: 1px solid black;
+   background-color:white;
+    /* box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); */
+
+}
+.utilities-title {
+    grid-area: utilTitle;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 10px;
+    
+}
+.utilities-body {
+    grid-area: utilBody;
+    width: 100%;
+    height: 100%;
+    text-align: center
+}
+.utilities-footer {
+    grid-area: utilFooter;
+    width: 100%;
+    height: 100%;
+    text-align: center
+}
+.utilities_container img {
+    
+
+        max-height:100%; 
+        max-width:100%
+    
+}
+.utilities_container h4 {
+    text-align: center;
+    position: relative;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+.utilitiesDeed_container {
+    display: grid;
+    grid-template-areas: "utilDeedTitle""utilDeedBody""utilDeedFooter";
+    grid-template-rows: 45% 30% 25%;
+    float: left;
+    margin: 20px;
+    width: 200px;
+    height: 270px;
+    border: 1px solid black;
+    
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+}
+.utilitiesDeed-title {
+    grid-area: utilDeedTitle;
+    width: 100%;
+    height: 100%;
+    text-align: center
+}
+
+
+
+.utilitiesDeed-body {
+    grid-area: utilDeedBody;
+    position: relative;
+    
+    width: 100%;
+    height: 100%;
+}
+
+.utilitiesDeed-footer {
+    grid-area: utilDeedFooter;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.utilitiesDeed_container h3 {
+    text-align: center;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+.utilitiesDeed_container img {
+    
+
+    max-height:100%; 
+    max-width:100%
+
+}
+.communitychest_container {
+    display: grid;
+    grid-template-areas: "ccTitle""ccBody";
+    grid-template-rows: 30% 70%;
+    /* float: left; */
+    /* margin: 20px; */
+    width: 120px;
+    height: 150px;
+    border: 1px solid black;
+   background-color:white;
+    /* box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); */
+
+}
+.communitychest-title {
+    grid-area: ccTitle;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 10px;
+    
+}
+.communitychest-body {
+    grid-area: ccBody;
+    width: 100%;
+    height: 100%;
+    text-align: center
+}
+.communitychest_container img {
+    
+
+    max-height:100%; 
+    max-width:100%
+
+}

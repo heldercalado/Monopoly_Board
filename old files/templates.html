@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .card {
+        display: grid;
+        grid-template-areas: "cardTitle""cardBody""cardFooter";
+        grid-template-rows: 30% 55% 15%;
+        float: left;
+        margin: 20px;
+        width: 120px;
+        height: 150px;
+        border: 1px solid black;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    }
+
+    .card-title {
+        grid-area: cardTitle;
+        width: 100%;
+        height: 100%;
+        text-align: center
+    }
+
+    .card-name {
+        padding: 10px 5px;
+        color: black;
+        text-align: center;
+    }
+
+    .card-body {
+        grid-area: cardBody;
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .card-footer {
+        grid-area: cardFooter;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+
+
+    }
+
+    .card img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .cardDeed {
+        display: grid;
+        grid-template-areas: "cardDeedTitle""cardDeedBody""cardDeedFooter";
+        grid-template-rows: 20% 50% 30%;
+        float: left;
+        margin: 20px;
+        width: 200px;
+        height: 280px;
+        border: 1px solid black;
+        
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    }
+
+    .cardDeed-title {
+        grid-area: cardDeedTitle;
+        width: 100%;
+        height: 100%;
+        text-align: center
+    }
+
+    .cardDeed-name {
+        padding: 10px 5px;
+        color: black;
+        text-align: center;
+    }
+
+    .cardDeed-body {
+        grid-area: cardDeedBody;
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .cardDeed-footer {
+        grid-area: cardDeedFooter;
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+
+
+    }
+
+    .cardDeed img {
+        float: left;
+        width: 15px;
+        height: 15px;
+    }
+.hotel img {
+    float: left;
+        width: 25px;
+        height: 25px;
+
+}
+    .cardDeed h3 {
+        text-align: center;
+        position: relative;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /* width: 15px;
+        height: 15px; */
+    }
+
+    /*rotate 45 degrees*/
+    .rotate90 {
+        /*General*/
+        transform: rotate(90deg);
+        /*Firefox*/
+        -moz-transform: rotate(90deg);
+        /*Microsoft Internet Explorer*/
+        -ms-transform: rotate(90deg);
+        /*Chrome, Safari*/
+        -webkit-transform: rotate(90deg);
+        /*Opera*/
+        -o-transform: rotate(90deg);
+        /*alter opacity*/
+        opacity: 0.8;
+        filter: alpha(opacity=80);
+    }
+
+    .rotate180 {
+        /*General*/
+        transform: rotate(180deg);
+        /*Firefox*/
+        -moz-transform: rotate(180deg);
+        /*Microsoft Internet Explorer*/
+        -ms-transform: rotate(180deg);
+        /*Chrome, Safari*/
+        -webkit-transform: rotate(180deg);
+        /*Opera*/
+        -o-transform: rotate(180deg);
+        /*alter opacity*/
+        opacity: 0.8;
+        filter: alpha(opacity=80);
+    }
+
+    .rotate270 {
+        /*General*/
+        transform: rotate(270deg);
+        /*Firefox*/
+        -moz-transform: rotate(270deg);
+        /*Microsoft Internet Explorer*/
+        -ms-transform: rotate(270deg);
+        /*Chrome, Safari*/
+        -webkit-transform: rotate(270deg);
+        /*Opera*/
+        -o-transform: rotate(270deg);
+        /*alter opacity*/
+        opacity: 0.8;
+        filter: alpha(opacity=80);
+    }
+    .onehouse {
+        position: relative;
+        left : 40%;
+        margin:0;
+    }
+    .twohouse {
+        position: relative;
+        left : 30%;
+        margin:0;
+    }
+</style>
+
+<body id="target">
+    <div class="card rotate90">
+        <div class="card-title" style="background-color: #733709;">
+
+        </div>
+        <div class="card-body">
+            <h4 class="card-name">Mediterranean Avenue</h4>
+            <table class="onehouse">
+                <!-- <td><img src="../img/house.jpg" alt="" srcset=""></td>
+                <td><img src="../img/hotel.jpg" alt="" srcset=""></td>-->
+                <td class="hotel"><img  src="../img/hotel.jpg" alt="" srcset=""></td> 
+                <!-- <td><img src="../img/house.jpg" alt="" srcset=""></td> -->
+            </table>
+           
+        </div>
+
+        <div class="card-footer">
+            <p>$60</p>
+        </div>
+
+    </div>
+    <div class="card rotate180">
+        <div class="card-title" style="background-color:#733709;">
+
+        </div>
+        <h4 class="card-name">Baltic Avenue</h4>
+        <div class="card-footer">
+            <p>$60</p>
+        </div>
+
+    </div>
+    <div class="card rotate270">
+        <div class="card-title" style="background-color:#C4EBEA;">
+
+        </div>
+        <h4 class="card-name">Oriental Avenue</h4>
+        <div class="card-footer">
+            <p>$100</p>
+        </div>
+
+    </div>
+    <div class="card">
+        <div class="card-title" style="background-color:#C4EBEA;">
+
+        </div>
+        <h4 class="card-name">Vermon Avenue</h4>
+        <div class="card-footer">
+            <p>$100</p>
+        </div>
+
+    </div>
+    <div class="card">
+        <div class="card-title" style="background-color:#C4EBEA;">
+
+        </div>
+        <h4 class="card-name">Connecticut Avenue</h4>
+        <div class="card-footer">
+            <p>$100</p>
+        </div>
+
+    </div>
+    <div class="cardDeed">
+        <div class="cardDeed-title" style="background-color:#C4EBEA;">
+            <h6>Title Deed</h6>
+            <h3><strong>Connecticut Avenue</strong></h3>
+        </div>
+        <div class="cardDeed-body">
+
+            <table style="width: 100%; padding: 5px;">
+                <tr>
+                    <td>
+                        <h5>Rent</h5>
+                    </td>
+                    <td></td>
+                    <td style="text-align: right;">
+                        <h5>$8</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>Rent with color set</h5>
+                    </td>
+                    <td></td>
+                    <td style="text-align: right;">
+                        <h5>$16</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>Rent with 1</h5>
+                    </td>
+                    <td><img src="../img/house.jpg" alt="" srcset=""></td>
+                    <td style="text-align: right;">
+                        <h5>$40</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>Rent with 2</h5>
+                    </td>
+                    <td><img src="../img/house.jpg" alt="" srcset=""></td>
+                    <td style="text-align: right;">
+                        <h5>$100</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>Rent with 3</h5>
+                    </td>
+                    <td><img src="../img/house.jpg" alt="" srcset=""></td>
+                    <td style="text-align: right;">
+                        <h5>$300</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>Rent with 4</h5>
+                    </td>
+                    <td><img src="../img/house.jpg" alt="" srcset=""></td>
+                    <td style="text-align: right;">
+                        <h5>$450</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>Rent with</h5>
+                    </td>
+                    <td class="hotel"><img class="" src="../img/hotel.jpg" alt="" srcset=""></td>
+                    <td style="text-align: right;">
+                        <h5>$600</h5>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+
+        <div class="cardDeed-footer">
+
+            <hr>
+
+            <table style="width: 100%; padding: 5px;">
+                <tr>
+                    <td>
+                        <h5>House Cost</h5>
+                    </td>
+                    <td></td>
+                    <td style="text-align: right;">
+                        <h5>$50 Each</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>Hotel Cost</h5>
+                    </td>
+                    <td></td>
+                    <td style="text-align: right;">
+                        <h5>$50 Each</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>Mortgage Value</h5>
+                    </td>
+                    <td></td>
+                    <td style="text-align: right;">
+                        <h5>$60</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>Unmortgage</h5>
+                    </td>
+                    <td></td>
+                    <td style="text-align: right;">
+                        <h5>$66</h5>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <div class="RailRoadDeed_container">
+            <div class="RailRoadDeed-title">
+                <img src="../img/train.jpg" alt="" srcset="">
+            </div>
+            <div class="RailRoadDeed-body">
+                <h3>Short Line</h3>
+            </div>
+            <div class="RailRoadDeed-footer">
+                <table style="width: 100%; padding: 5px;">
+                    <tr>
+                        <td>
+                            <h5>Rent:</h5>
+                        </td>
+                        <td style="text-align: right;">
+                            <h5>$25</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>if 2 Railroads are owned:</h5>
+                        </td>
+                        <td style="text-align: right;">
+                            <h5>$50</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>if 3 Railroads are owned:</h5>
+                        </td>
+                        <td style="text-align: right;">
+                            <h5>$100</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>if 4 Railroads are owned:</h5>
+                        </td>
+                        <td style="text-align: right;">
+                            <h5>$200</h5>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="communitychest_container">
+                <div class="communitychest-title">
+            <h5>Community Chest</h5>
+                </div>
+                <div class="communitychest-body">
+                    <img src="../img/treasure.jpg" alt="" srcset="">
+                    </div>
+            </div>
+</body>
+<script src="../data/cards.js"></script>
+<script>
+
+$(document).ready(function(){
+
+console.log(cards_properties);
+
+})
+
+function addTitle(argObj , argTarget){
+$("#"+argTarget).append('<div class="card rotate90" id="pos'+argobj.position+'"></div>');
+$("#pos"+argobj.position).append('<div class="card-title" style="background-color: #733709;"></div>');
+$("#pos"+argobj.position).append('<div class="card-body" id="cbody'+argobj.position+'"></div>');
+$("#cbody"+argobj.position).append('<h4 class="card-name">'+argobj.name+'</h4>');
+$("#cbody"+argobj.position).append('<table class="onehouse"> id="tbl'+argObj.position+'</table>');
+$("#tbl"+argobj.position).append('<tr><td><img src="../img/house.jpg" alt="" srcset=""></td></tr>');
+$("#pos"+argobj.position).append('<div class="card-footer" id="footer'+argObj.position+'"></div>');
+$("#footer"+argobj.position).append('<p>$'+argObj.price+'</p>');
+
+
+}
+
+
+</script>
+</html>
